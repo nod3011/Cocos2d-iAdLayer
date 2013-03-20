@@ -141,13 +141,13 @@
     // バナー表示フラグOFFの場合、バナーアクションを実行
     if (!self.isShow)
     {
-        self.isShow = YES;
-        
         [UIView animateWithDuration:BANNER_ANIMATION_SPEED
                          animations:^{
                              _adView.frame = CGRectOffset(_adView.frame, 0, _bannerMovePx);
                          }
                          completion:^(BOOL finished) {
+                             self.isShow = YES;
+                             
                              // アニメーション終了後の処理があればココに追加
                          }];
     }
@@ -160,13 +160,13 @@
     // バナー表示フラグONの場合、バナーアクションを実行(非表示)
     if (self.isShow)
     {
-        self.isShow = NO;
-        
         [UIView animateWithDuration:BANNER_ANIMATION_SPEED
                          animations:^{
                              _adView.frame = CGRectOffset(_adView.frame, 0, -_bannerMovePx);
                          }
                          completion:^(BOOL finished) {
+                             self.isShow = NO;
+                             
                              // アニメーション終了後の処理があればココに追加
                          }];
     }
